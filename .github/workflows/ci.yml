@@ -5,8 +5,35 @@ on:
     workflow_dispatch:
 
 jobs:
+    pr-paths-changed:
+        runs-on: ubuntu-latest
+        outputs:
+            root: ${{ fromJson(steps.paths-changed.outputs.result).rootChanged || false }}
+            docs: ${{ fromJson(steps.paths-changed.outputs.result).docsChanged || false }}
+        steps:
+            - name: Check which files have changed
+              uses: actions/github-script@v9
+              id: paths-changed
+              with:
+                  script: |
+                      const result = await github.rest.pulls.listFiles({
+                        owner: context.payload.repository.owner.login,
+                        repo: context.payload.repository.name,
+                        pull_number: context.payload.number,
+                        per_page: 100
+                      });
+                      const docsChanged = result.data.filter(f => f.filename.startsWith("docs/")).length > 0
+                      const rootChanged = result.data.filter(f => !f.filename.startsWith("docs/")).length > 0
+                      if (docsChanged)
+                        console.log("This PR includes changes to the /docs/** path.");
+                      if (rootChanged)
+                        console.log("This PR includes changes to the root path and sub-directories (excluding /docs/**).");
+                      return { rootChanged, docsChanged };
+
     ci:
         name: Building, linting, testing on node ${{ matrix.node.version }} and ${{ matrix.os }}
+        needs: pr-paths-changed
+        if: ${{ fromJson(needs.pr-paths-changed.outputs.root) == true }}
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
@@ -46,3 +73,30 @@ jobs:
 
             - name: Build
               run: npm run build
+    ci-docs:
+        name: Building, linting, testing /docs on node 12.x and ubuntu-latest
+        needs: pr-paths-changed
+        if: ${{ fromJson(needs.pr-paths-changed.outputs.docs) == true }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Begin job...
+              uses: actions/checkout@v6
+
+            - name: Use Node 12
+              uses: actions/setup-node@v6
+              with:
+                  node-version: '12'
+                  cache: 'npm'
+
+            - name: Install deps (with cache)
+              uses: bahmutov/npm-install@v1
+              with:
+                  working-directory: ./docs
+
+            - name: Lint
+              run: npm run lint
+              working-directory: ./docs
+
+            - name: Building
+              run: npm run build
+              working-directory: ./docs
