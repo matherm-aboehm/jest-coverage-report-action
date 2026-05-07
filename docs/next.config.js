@@ -1,9 +1,16 @@
+// @ts-check
 const path = require('path');
 
 const remarkPlugins = [require('remark-slug')];
 
+/** @type {import('next').NextConfig} */
 module.exports = {
     pageExtensions: ['tsx', 'jsx', 'md', 'mdx'],
+    images: {
+        disableStaticImages: true,
+    },
+    /** @param {import('webpack/declarations/WebpackOptions').WebpackOptions} config type from 4.46.0 */
+    /** @param {import('webpack').Configuration} config type from 5.106.2 */
     webpack(config, { defaultLoaders }) {
         config.module.rules.push({
             test: /.mdx?$/,
@@ -36,9 +43,7 @@ module.exports = {
 
         config.module.rules.push({
             test: /\.svg$/,
-            issuer: {
-                test: /\.(js|ts)x?$/,
-            },
+            issuer: /\.(js|ts)x?$/,
             use: ['@svgr/webpack'],
         });
 
