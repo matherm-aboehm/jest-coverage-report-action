@@ -43,8 +43,11 @@ export const LayoutDocs = ({ children, meta }: LayoutProps) => {
                                     Related
                                 </Heading>
                                 <List>
-                                    {meta.related.map((link: string) => (
-                                        <ListItem textTransform="capitalize">
+                                    {meta.related.map((link: string, key) => (
+                                        <ListItem
+                                            key={key}
+                                            textTransform="capitalize"
+                                        >
                                             <NextLink href={link}>
                                                 {link
                                                     .split('/')
