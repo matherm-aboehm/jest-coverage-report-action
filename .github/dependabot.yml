@@ -39,6 +39,9 @@ updates:
         update-types:
           - minor
           - patch
+    ignore:
+      - dependency-name: '@monaco-editor/react'
+        versions: ['>=4.5.0']
     commit-message:
       prefix: 'fix(docs)'
       prefix-development: 'build(docs)'
