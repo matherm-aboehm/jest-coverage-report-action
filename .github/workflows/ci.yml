@@ -16,14 +16,17 @@ jobs:
               id: paths-changed
               with:
                   script: |
-                      const result = await github.rest.pulls.listFiles({
-                        owner: context.payload.repository.owner.login,
-                        repo: context.payload.repository.name,
-                        pull_number: context.payload.number,
-                        per_page: 100
-                      });
-                      const docsChanged = result.data.filter(f => f.filename.startsWith("docs/")).length > 0
-                      const rootChanged = result.data.filter(f => !f.filename.startsWith("docs/")).length > 0
+                      const files = await github.paginate(
+                        github.rest.pulls.listFiles,
+                        {
+                          owner: context.payload.repository.owner.login,
+                          repo: context.payload.repository.name,
+                          pull_number: context.payload.number,
+                          per_page: 100
+                        }
+                      );
+                      const docsChanged = files.filter(f => f.filename.startsWith("docs/")).length > 0
+                      const rootChanged = files.filter(f => !f.filename.startsWith("docs/")).length > 0
                       if (docsChanged)
                         console.log("This PR includes changes to the /docs/** path.");
                       if (rootChanged)
