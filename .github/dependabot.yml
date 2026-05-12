@@ -44,6 +44,8 @@ updates:
             versions: ['>=4.5.0']
           - dependency-name: 'next'
             versions: ['>=13.0.0']
+          - dependency-name: 'sharp'
+            versions: ['>=0.31.0']
       commit-message:
           prefix: 'fix(docs)'
           prefix-development: 'build(docs)'
