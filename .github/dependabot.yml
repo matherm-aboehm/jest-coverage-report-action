@@ -5,53 +5,55 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
-    schedule:
-      interval: 'monthly'
-    groups:
-      production-dependencies:
-        dependency-type: 'production'
-        update-types:
-          - minor
-          - patch
-      development-dependencies:
-        dependency-type: 'development'
-        update-types:
-          - minor
-          - patch
-    commit-message:
-      prefix: 'fix'
-      prefix-development: 'build'
-      include: 'scope'
-  - package-ecosystem: 'npm'
-    directory: '/docs'
-    schedule:
-      interval: 'monthly'
-    groups:
-      production-dependencies:
-        dependency-type: 'production'
-        update-types:
-          - minor
-          - patch
-      development-dependencies:
-        dependency-type: 'development'
-        update-types:
-          - minor
-          - patch
-    ignore:
-      - dependency-name: '@monaco-editor/react'
-        versions: ['>=4.5.0']
-    commit-message:
-      prefix: 'fix(docs)'
-      prefix-development: 'build(docs)'
-      include: 'scope'
-  - package-ecosystem: 'github-actions'
-    directory: '/'
-    schedule:
-      interval: 'monthly'
-    groups:
-      github-actions:
-        update-types:
-          - minor
-          - patch
+    - package-ecosystem: 'npm'
+      directory: '/'
+      schedule:
+          interval: 'monthly'
+      groups:
+          production-dependencies:
+              dependency-type: 'production'
+              update-types:
+                  - minor
+                  - patch
+          development-dependencies:
+              dependency-type: 'development'
+              update-types:
+                  - minor
+                  - patch
+      commit-message:
+          prefix: 'fix'
+          prefix-development: 'build'
+          include: 'scope'
+    - package-ecosystem: 'npm'
+      directory: '/docs'
+      schedule:
+          interval: 'monthly'
+      groups:
+          production-dependencies:
+              dependency-type: 'production'
+              update-types:
+                  - minor
+                  - patch
+          development-dependencies:
+              dependency-type: 'development'
+              update-types:
+                  - minor
+                  - patch
+      ignore:
+          - dependency-name: '@monaco-editor/react'
+            versions: ['>=4.5.0']
+          - dependency-name: 'next'
+            versions: ['>=13.0.0']
+      commit-message:
+          prefix: 'fix(docs)'
+          prefix-development: 'build(docs)'
+          include: 'scope'
+    - package-ecosystem: 'github-actions'
+      directory: '/'
+      schedule:
+          interval: 'monthly'
+      groups:
+          github-actions:
+              update-types:
+                  - minor
+                  - patch
