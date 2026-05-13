@@ -7,9 +7,9 @@ export type BotLogoProps = {
 };
 
 export const BotLogo = ({ size = 32 }: BotLogoProps) => (
-    <CircleBadge size={size} backgroundColor="auto.black">
+    <CircleBadge size={size} sx={{ backgroundColor: 'auto.black' }}>
         <CircleBadge.Icon
-            color="auto.white"
+            sx={{ color: 'auto.white' }}
             size={size}
             icon={MarkGithubIcon}
         />

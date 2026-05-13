@@ -62,7 +62,7 @@ export const HomeExample = () => (
             <GridItem className={classes['part1']}>
                 <Timeline>
                     <Timeline.Item>
-                        <Timeline.Badge css>
+                        <Timeline.Badge>
                             <StyledOcticon icon={GitCommitIcon} />
                         </Timeline.Badge>
                         <Timeline.Body>New commit</Timeline.Body>

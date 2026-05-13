@@ -88,7 +88,7 @@ export const CoverageComment = ({
                     <Text display="inline" fontWeight="bold">
                         github-actions
                     </Text>
-                    <Label ml="1" outline>
+                    <Label sx={{ ml: 1 }} outline>
                         bot
                     </Label>
                 </Box>

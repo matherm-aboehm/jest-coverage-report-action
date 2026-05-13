@@ -8,10 +8,7 @@ import {
 } from '@chakra-ui/react';
 import type { EditorProps, OnChange } from '@monaco-editor/react';
 import { StyledOcticon } from '@primer/components';
-import {
-    CheckIcon,
-    ClippyIcon,
-} from '@primer/components/node_modules/@primer/octicons-react';
+import { CheckIcon, PasteIcon } from '@primer/octicons-react';
 import dynamic from 'next/dynamic';
 import React, { useCallback, useReducer, useRef } from 'react';
 
@@ -90,11 +87,11 @@ export const EditorWithCopy = ({
                     icon={
                         hasCopied ? (
                             <StyledOcticon
-                                as={CheckIcon}
-                                color="text.success"
+                                icon={CheckIcon}
+                                sx={{ color: 'text.success' }}
                             />
                         ) : (
-                            <ClippyIcon />
+                            <PasteIcon />
                         )
                     }
                 />
