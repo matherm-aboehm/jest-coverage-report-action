@@ -45,7 +45,7 @@ export const PrFooter = ({ className }: PrFooterProps) => {
                     >
                         <StyledOcticon
                             size={24}
-                            color="border.warning"
+                            sx={{ color: 'border.warning' }}
                             icon={GitMergeIcon}
                         />
                     </BorderBox>
@@ -61,7 +61,7 @@ export const PrFooter = ({ className }: PrFooterProps) => {
                             >
                                 <StyledOcticon
                                     size="medium"
-                                    color="icon.danger"
+                                    sx={{ color: 'icon.danger' }}
                                     icon={XCircleFillIcon}
                                 />
                             </GridItem>
@@ -100,10 +100,10 @@ export const PrFooter = ({ className }: PrFooterProps) => {
                         </Checks>
                         <Box padding="3">
                             <ButtonGroup>
-                                <Button onClick={() => showMergeToast()} css>
+                                <Button onClick={() => showMergeToast()}>
                                     Merge
                                 </Button>
-                                <Button css pl={2} pr={2}>
+                                <Button sx={{ pl: 2, pr: 2 }}>
                                     <TriangleDownIcon />
                                 </Button>
                             </ButtonGroup>

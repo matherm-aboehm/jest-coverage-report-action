@@ -20,7 +20,11 @@ export const CheckItem = ({ children, last }: CheckItemProps) => (
             borderBottomWidth={last ? 'thin' : 'none'}
             pl="3"
         >
-            <StyledOcticon size="small" color="icon.danger" icon={XIcon} />
+            <StyledOcticon
+                size="small"
+                sx={{ color: 'icon.danger' }}
+                icon={XIcon}
+            />
         </GridItem>
         <GridItem
             display="flex"
