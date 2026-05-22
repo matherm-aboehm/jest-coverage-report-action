@@ -37,6 +37,7 @@
         "eslint": "^7.21.0",
         "eslint-config-next": "^12.1.0",
         "gh-pages": "^6.3.0",
+        "import-sync": "2.2.3",
         "remark-slug": "^7.0.1",
         "responsive-loader": "^3.1.2",
         "sharp": "0.30.7",

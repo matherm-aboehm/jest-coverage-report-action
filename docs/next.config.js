@@ -1,7 +1,13 @@
 // @ts-check
 const path = require('path');
+// use import-sync instead of deasync for synchronized dynamic imports, because
+// deasync has a hang bug when dynamic import is used in a module which itself is
+// imported from ESM instead of required from CJS, see:
+// https://github.com/abbr/deasync/issues/178
+const { default: importSync } = require('import-sync');
 
-const remarkPlugins = [require('remark-slug')];
+const { default: remarkSlug } = importSync('remark-slug');
+const remarkPlugins = [remarkSlug];
 
 /** @type {import('next').NextConfig} */
 module.exports = {
