@@ -48,6 +48,12 @@ updates:
             versions: ['>=0.31.0']
           - dependency-name: 'typescript'
             versions: ['>=5.1.0']
+          - dependency-name: 'react'
+            versions: ['>=19.0.0']
+          - dependency-name: 'react-dom'
+            versions: ['>=19.0.0']
+          - dependency-name: '@types/react'
+            versions: ['>=19.0.0']
       commit-message:
           prefix: 'fix(docs)'
           prefix-development: 'build(docs)'
