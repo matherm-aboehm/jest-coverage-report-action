@@ -6,6 +6,8 @@ const path = require('path');
 // https://github.com/abbr/deasync/issues/178
 const { default: importSync } = require('import-sync');
 
+// there are now alternatives to this dynamic import, see:
+// https://github.com/vercel/next.js/discussions/32239
 const { default: remarkSlug } = importSync('remark-slug');
 const remarkPlugins = [remarkSlug];
 
@@ -18,6 +20,8 @@ module.exports = {
     /** @param {import('webpack/declarations/WebpackOptions').WebpackOptions} config type from 4.46.0 */
     /** @param {import('webpack').Configuration} config type from 5.106.2 */
     webpack(config, { defaultLoaders }) {
+        if (!config.module || !config.module.rules) return config;
+
         config.module.rules.push({
             test: /.mdx?$/,
             use: [
