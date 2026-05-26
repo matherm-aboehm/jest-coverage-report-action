@@ -34,7 +34,7 @@
         "@types/babel__core": "^7.20.5",
         "@types/node": "^12.12.6",
         "@types/react": "^17.0.11",
-        "eslint": "^7.21.0",
+        "eslint": "^10.4.0",
         "eslint-config-next": "^12.1.0",
         "gh-pages": "^6.3.0",
         "import-sync": "2.2.3",
