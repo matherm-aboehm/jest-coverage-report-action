@@ -17,8 +17,8 @@ describe('switchBranch', () => {
     it('should fetch repository & switch to branch', async () => {
         await switchBranch('Test-branch');
 
-        expect(exec).toBeCalledWith('git fetch --all --depth=1');
-        expect(exec).toBeCalledWith('git checkout -f Test-branch');
+        expect(exec).toHaveBeenCalledWith('git fetch --all --depth=1');
+        expect(exec).toHaveBeenCalledWith('git checkout -f Test-branch');
     });
 
     it('should switch to branch, even if fetch failed', async () => {
@@ -28,7 +28,7 @@ describe('switchBranch', () => {
 
         await switchBranch('Test-branch');
 
-        expect(exec).toBeCalledWith('git checkout -f Test-branch');
+        expect(exec).toHaveBeenCalledWith('git checkout -f Test-branch');
     });
 });
 
@@ -44,7 +44,7 @@ describe('checkoutRef', () => {
             'branch-1'
         );
 
-        expect(exec).toBeCalledWith(
+        expect(exec).toHaveBeenCalledWith(
             'git remote add remote-1 https://github.com/test/repo.git'
         );
     });
@@ -68,7 +68,7 @@ describe('checkoutRef', () => {
             /* Ignore error */
         }
 
-        expect(exec).not.toBeCalledWith(
+        expect(exec).not.toHaveBeenCalledWith(
             'git remote add remote-1 https://github.com/test/repo.git'
         );
     });
@@ -84,7 +84,7 @@ describe('checkoutRef', () => {
             'branch-1'
         );
 
-        expect(exec).toBeCalledWith('git fetch --depth=1 remote-1');
+        expect(exec).toHaveBeenCalledWith('git fetch --depth=1 remote-1');
     });
 
     it('should checkout to a new branch', async () => {
@@ -98,7 +98,7 @@ describe('checkoutRef', () => {
             'branch-1'
         );
 
-        expect(exec).toBeCalledWith(
+        expect(exec).toHaveBeenCalledWith(
             'git checkout -b branch-1 --track remote-1/hello -f'
         );
     });
@@ -112,7 +112,7 @@ describe('checkoutRef', () => {
             'branch-1'
         );
 
-        expect(exec).toBeCalledWith('git checkout hello -f');
+        expect(exec).toHaveBeenCalledWith('git checkout hello -f');
     });
 
     it('should try git checkout by sha if ref fails', async () => {

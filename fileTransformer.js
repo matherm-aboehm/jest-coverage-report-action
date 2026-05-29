@@ -1,5 +1,7 @@
 module.exports = {
     process(src) {
-        return 'module.exports = `' + src + '`;';
+        return {
+            code: 'module.exports = `' + src + '`; ',
+        };
     },
 };

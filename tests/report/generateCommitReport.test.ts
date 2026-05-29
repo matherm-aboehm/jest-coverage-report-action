@@ -28,7 +28,7 @@ describe('generateCommitReport', () => {
             } as unknown) as ReturnType<typeof getOctokit>
         );
 
-        expect(createCommitComment).toBeCalledWith({
+        expect(createCommitComment).toHaveBeenCalledWith({
             owner: 'bot',
             repo: 'test-repository',
             body: 'Report body',
