@@ -10,7 +10,7 @@ describe('parseCoverage', () => {
     });
 
     it('should throw error if JSON is not valid', () => {
-        expect(() => parseCoverage('not valid json')).toThrowError(
+        expect(() => parseCoverage('not valid json')).toThrow(
             new ActionError(FailReason.INVALID_COVERAGE_FORMAT)
         );
     });

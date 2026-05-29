@@ -1,7 +1,7 @@
 import { sep } from 'path';
 
 import { exec } from '@actions/exec';
-import { mocked } from 'ts-jest/utils';
+import { mocked } from 'jest-mock';
 
 import { installDependencies } from '../../src/stages/installDependencies';
 import { removeDirectory } from '../../src/utils/removeDirectory';
@@ -19,19 +19,21 @@ describe('installDependencies', () => {
     it('should remove "node_modules" directory', async () => {
         await installDependencies();
 
-        expect(removeDirectory).toBeCalledWith('node_modules');
+        expect(removeDirectory).toHaveBeenCalledWith('node_modules');
     });
 
     it('should remove "node_modules" directory, which is under specified working directory', async () => {
         await installDependencies(undefined, 'workingDir');
 
-        expect(removeDirectory).toBeCalledWith(`workingDir${sep}node_modules`);
+        expect(removeDirectory).toHaveBeenCalledWith(
+            `workingDir${sep}node_modules`
+        );
     });
 
     it('should install dependencies', async () => {
         await installDependencies();
 
-        expect(exec).toBeCalledWith('npm install', undefined, {
+        expect(exec).toHaveBeenCalledWith('npm install', undefined, {
             cwd: undefined,
         });
     });
@@ -39,7 +41,7 @@ describe('installDependencies', () => {
     it('should install dependencies using npm', async () => {
         await installDependencies('npm');
 
-        expect(exec).toBeCalledWith('npm install', undefined, {
+        expect(exec).toHaveBeenCalledWith('npm install', undefined, {
             cwd: undefined,
         });
     });
@@ -47,7 +49,7 @@ describe('installDependencies', () => {
     it('should install dependencies using yarn', async () => {
         await installDependencies('yarn');
 
-        expect(exec).toBeCalledWith('yarn install', undefined, {
+        expect(exec).toHaveBeenCalledWith('yarn install', undefined, {
             cwd: undefined,
         });
     });
@@ -55,7 +57,7 @@ describe('installDependencies', () => {
     it('should install dependencies using pnpm', async () => {
         await installDependencies('pnpm');
 
-        expect(exec).toBeCalledWith('pnpm install', undefined, {
+        expect(exec).toHaveBeenCalledWith('pnpm install', undefined, {
             cwd: undefined,
         });
     });
@@ -63,7 +65,7 @@ describe('installDependencies', () => {
     it('should install dependencies using bun', async () => {
         await installDependencies('bun');
 
-        expect(exec).toBeCalledWith('bun install', undefined, {
+        expect(exec).toHaveBeenCalledWith('bun install', undefined, {
             cwd: undefined,
         });
     });
@@ -71,7 +73,7 @@ describe('installDependencies', () => {
     it('should install dependencies under specified working directory', async () => {
         await installDependencies(undefined, 'workingDir');
 
-        expect(exec).toBeCalledWith('npm install', undefined, {
+        expect(exec).toHaveBeenCalledWith('npm install', undefined, {
             cwd: 'workingDir',
         });
     });
@@ -86,6 +88,6 @@ describe('installDependencies', () => {
             /** ignore error */
         }
 
-        expect(exec).not.toBeCalled();
+        expect(exec).not.toHaveBeenCalled();
     });
 });
