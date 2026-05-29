@@ -70,7 +70,7 @@ describe('fetchPreviousReport', () => {
             )}\n This is jest-coverage-report-action report`,
         });
 
-        expect(paginate).toBeCalledWith(
+        expect(paginate).toHaveBeenCalledWith(
             'GET /repos/{owner}/{repo}/issues/{issue_number}/comments',
             {
                 owner: 'bot',

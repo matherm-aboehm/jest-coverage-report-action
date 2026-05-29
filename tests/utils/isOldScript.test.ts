@@ -113,10 +113,10 @@ describe('isOldScript', () => {
 
         expect(await isOldScript('npm test', undefined)).toBe(true);
 
-        expect(readFile).toBeCalledWith('package.json');
+        expect(readFile).toHaveBeenCalledWith('package.json');
 
         expect(await isOldScript('npm test', 'hello')).toBe(true);
 
-        expect(readFile).toBeCalledWith(`hello${sep}package.json`);
+        expect(readFile).toHaveBeenCalledWith(`hello${sep}package.json`);
     });
 });

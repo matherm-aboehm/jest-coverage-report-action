@@ -192,7 +192,7 @@ describe('getOptions', () => {
             prNumber: 1234,
             pullRequest: pr,
         });
-        expect(octokit.rest.pulls.get).toBeCalledTimes(1);
+        expect(octokit.rest.pulls.get).toHaveBeenCalledTimes(1);
     });
 
     it('should not lookup pullRequest from prNumber if pull_request does exist on context', async () => {
@@ -203,7 +203,7 @@ describe('getOptions', () => {
             prNumber: 1234,
             pullRequest: pr,
         });
-        expect(octokit.rest.pulls.get).not.toBeCalled();
+        expect(octokit.rest.pulls.get).not.toHaveBeenCalled();
     });
 
     it('should return null prNumber and pullRequest with no prnumber input on push context', async () => {
@@ -214,7 +214,7 @@ describe('getOptions', () => {
             prNumber: null,
             pullRequest: null,
         });
-        expect(octokit.rest.pulls.get).not.toBeCalled();
+        expect(octokit.rest.pulls.get).not.toHaveBeenCalled();
     });
 });
 

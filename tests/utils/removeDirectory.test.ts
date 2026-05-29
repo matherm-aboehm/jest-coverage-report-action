@@ -1,5 +1,5 @@
 import { rm, rmdir } from 'fs-extra';
-import { mocked } from 'ts-jest/utils';
+import { mocked } from 'jest-mock';
 
 import { removeDirectory } from '../../src/utils/removeDirectory';
 
@@ -21,8 +21,8 @@ describe('removeDirectory', () => {
             version: 'v14.3.9',
         };
         await removeDirectory('asdf');
-        expect(rm).not.toBeCalled();
-        expect(rmdir).toBeCalled();
+        expect(rm).not.toHaveBeenCalled();
+        expect(rmdir).toHaveBeenCalled();
     });
 
     it('should call rm when node version is >=14.14.0', async () => {
@@ -31,7 +31,7 @@ describe('removeDirectory', () => {
             version: 'v14.14.0',
         };
         await removeDirectory('asdf');
-        expect(rm).toBeCalled();
-        expect(rmdir).not.toBeCalled();
+        expect(rm).toHaveBeenCalled();
+        expect(rmdir).not.toHaveBeenCalled();
     });
 });
