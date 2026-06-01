@@ -39,7 +39,9 @@ describe('getCoverage', () => {
     it('should run all steps', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReport = await getCoverage(
             dataCollector,
@@ -67,7 +69,9 @@ describe('getCoverage', () => {
     it('should pass working-directory', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReport = await getCoverage(
             dataCollector,
@@ -97,7 +101,9 @@ describe('getCoverage', () => {
     it('should pass package-manager', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReportYarn = await getCoverage(
             dataCollector,
@@ -112,7 +118,9 @@ describe('getCoverage', () => {
 
         expect(jsonReportYarn).toStrictEqual({});
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReportPnpm = await getCoverage(
             dataCollector,
@@ -127,7 +135,9 @@ describe('getCoverage', () => {
 
         expect(jsonReportPnpm).toStrictEqual({});
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReportBun = await getCoverage(
             dataCollector,
@@ -146,7 +156,9 @@ describe('getCoverage', () => {
     it('should skip installation step', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReport = await getCoverage(
             dataCollector,
@@ -174,7 +186,9 @@ describe('getCoverage', () => {
     it('should skip all steps', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReport = await getCoverage(
             dataCollector,
@@ -202,7 +216,9 @@ describe('getCoverage', () => {
     it('should run all steps, ignoring skip-step option', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReport = await getCoverage(
             dataCollector,
@@ -230,7 +246,9 @@ describe('getCoverage', () => {
     it('should run all steps, ignoring skip-step option', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReport = await getCoverage(
             dataCollector,
@@ -258,7 +276,9 @@ describe('getCoverage', () => {
     it('should ignore failing install stage', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
         (exec as jest.Mock<any, any>).mockImplementationOnce(() => {
             throw new Error('not installed');
         });
@@ -289,7 +309,9 @@ describe('getCoverage', () => {
     it('should ignore failing test stage', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
         (exec as jest.Mock<any, any>).mockImplementation((command: string) => {
             if (command.startsWith('default script')) {
                 throw new Error('tests failed');
@@ -322,7 +344,7 @@ describe('getCoverage', () => {
     it('should throw error if report file not found', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
             () => undefined
         );
 
@@ -339,7 +361,9 @@ describe('getCoverage', () => {
     it('should read coverage from specified coverage file', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => '{}');
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => '{}'
+        );
 
         const jsonReport = await getCoverage(
             dataCollector,
@@ -359,9 +383,11 @@ describe('getCoverage', () => {
     it('should return error, if reading from specified coverage file failed', async () => {
         const dataCollector = createDataCollector<JsonReport>();
 
-        (readFile as jest.Mock<any, any>).mockImplementationOnce(() => {
-            throw new Error('a');
-        });
+        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+            () => {
+                throw new Error('a');
+            }
+        );
 
         await expect(
             getCoverage(dataCollector, defaultOptions, false, 'custom filepath')
