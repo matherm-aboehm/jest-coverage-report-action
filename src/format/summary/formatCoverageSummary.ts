@@ -1,4 +1,4 @@
-import table from 'markdown-table';
+import { markdownTable as table } from 'markdown-table';
 
 import { CoverageSummary } from '../../typings/Coverage';
 import { formatPercentage } from '../../utils/formatPercentage';
