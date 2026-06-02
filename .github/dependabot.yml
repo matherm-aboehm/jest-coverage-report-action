@@ -21,9 +21,6 @@ updates:
               update-types:
                   - minor
                   - patch
-      ignore:
-          - dependency-name: 'eslint-plugin-prettier'
-            versions: ['>=5.0.0']
       commit-message:
           prefix: 'fix'
           prefix-development: 'build'
