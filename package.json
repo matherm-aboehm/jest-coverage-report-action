@@ -45,7 +45,7 @@
         "babel-jest": "^30.4.1",
         "c12": "^0.2.13",
         "esbuild": "^0.28.0",
-        "eslint": "^7.17.0",
+        "eslint": "^9.39.4",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^4.2.5",
         "eslint-plugin-simple-import-sort": "^13.0.0",
