@@ -21,6 +21,12 @@ updates:
               update-types:
                   - minor
                   - patch
+          eslint-dependencies:
+              patterns:
+                  - '@typescript-eslint/*'
+              dependency-type: 'development'
+              update-types:
+                  - major
       ignore:
           - dependency-name: '@typescript-eslint/eslint-plugin'
             versions: ['>=7.0.0']
