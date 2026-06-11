@@ -13,7 +13,7 @@ describe('createFailedTestsAnnotations', () => {
         );
 
         expect(
-            createFailedTestsAnnotations((jsonReport as unknown) as JsonReport)
+            createFailedTestsAnnotations(jsonReport as unknown as JsonReport)
         ).toMatchSnapshot();
 
         (relative as jest.Mock<any, any>).mockClear();
@@ -24,9 +24,9 @@ describe('createFailedTestsAnnotations', () => {
             []
         );
         expect(
-            createFailedTestsAnnotations(({
+            createFailedTestsAnnotations({
                 testResults: [{}],
-            } as unknown) as JsonReport)
+            } as unknown as JsonReport)
         ).toStrictEqual([]);
     });
 });

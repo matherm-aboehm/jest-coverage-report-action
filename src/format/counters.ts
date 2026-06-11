@@ -1,12 +1,12 @@
 import { FileCoverage } from '../typings/JsonReport';
 
-export const standardTotalCounter = (key: keyof FileCoverage) => (
-    value: FileCoverage
-) => Object.values(value[key]).length;
+export const standardTotalCounter =
+    (key: keyof FileCoverage) => (value: FileCoverage) =>
+        Object.values(value[key]).length;
 
-export const standardCoveredCounter = (key: keyof FileCoverage) => (
-    value: FileCoverage
-) => Object.values(value[key]).filter((hits) => hits > 0).length;
+export const standardCoveredCounter =
+    (key: keyof FileCoverage) => (value: FileCoverage) =>
+        Object.values(value[key]).filter((hits) => hits > 0).length;
 
 export const totalBranchesCounter = (value: FileCoverage) =>
     Object.values(value.b).reduce((acc, branch) => acc + branch.length, 0);
@@ -31,17 +31,20 @@ const getLineCoverage = (value: FileCoverage) => {
     const statementMap = value.statementMap;
     const statements = value.s;
 
-    return Object.entries(statements).reduce((acc, [st, count]) => {
-        const _st: number = parseInt(st);
+    return Object.entries(statements).reduce(
+        (acc, [st, count]) => {
+            const _st: number = parseInt(st);
 
-        if (!statementMap[_st]) {
+            if (!statementMap[_st]) {
+                return acc;
+            }
+            const { line } = statementMap[_st].start;
+            const prevVal = acc[line];
+            if (prevVal === undefined || prevVal < count) {
+                acc[line] = count;
+            }
             return acc;
-        }
-        const { line } = statementMap[_st].start;
-        const prevVal = acc[line];
-        if (prevVal === undefined || prevVal < count) {
-            acc[line] = count;
-        }
-        return acc;
-    }, {} as Record<string, number>);
+        },
+        {} as Record<string, number>
+    );
 };

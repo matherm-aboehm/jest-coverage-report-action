@@ -4,5 +4,7 @@
     },
     "files.associations": {
         "*.md": "mdx"
-    }
+    },
+    "eslint.lintTask.enable": true,
+    "eslint.lintTask.command": "npx eslint"
 }

@@ -19,13 +19,13 @@ describe('generateCommitReport', () => {
                 owner: 'bot',
                 repo: 'test-repository',
             },
-            ({
+            {
                 rest: {
                     repos: {
                         createCommitComment,
                     },
                 },
-            } as unknown) as ReturnType<typeof getOctokit>
+            } as unknown as ReturnType<typeof getOctokit>
         );
 
         expect(createCommitComment).toHaveBeenCalledWith({

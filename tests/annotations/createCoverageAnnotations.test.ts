@@ -17,11 +17,11 @@ describe('createCoverageAnnotations', () => {
         expect(createCoverageAnnotations(jsonReport)).toMatchSnapshot();
 
         expect(
-            createCoverageAnnotations((jsonReport2 as unknown) as JsonReport)
+            createCoverageAnnotations(jsonReport2 as unknown as JsonReport)
         ).toMatchSnapshot();
 
         expect(
-            createCoverageAnnotations((jsonReport3 as unknown) as JsonReport)
+            createCoverageAnnotations(jsonReport3 as unknown as JsonReport)
         ).toMatchSnapshot();
 
         (relative as jest.Mock<any, any>).mockClear();

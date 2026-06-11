@@ -52,9 +52,9 @@ describe('fetchPreviousReport', () => {
 
         await expect(
             fetchPreviousReport(
-                ({
+                {
                     paginate,
-                } as unknown) as ReturnType<typeof getOctokit>,
+                } as unknown as ReturnType<typeof getOctokit>,
                 {
                     owner: 'bot',
                     repo: 'test-repo',
@@ -107,9 +107,9 @@ describe('fetchPreviousReport', () => {
 
         await expect(
             fetchPreviousReport(
-                ({
+                {
                     paginate,
-                } as unknown) as ReturnType<typeof getOctokit>,
+                } as unknown as ReturnType<typeof getOctokit>,
                 {
                     owner: 'bot',
                     repo: 'test-repo',
@@ -143,9 +143,9 @@ describe('fetchPreviousReport', () => {
 
         await expect(
             fetchPreviousReport(
-                ({
+                {
                     paginate,
-                } as unknown) as ReturnType<typeof getOctokit>,
+                } as unknown as ReturnType<typeof getOctokit>,
                 {
                     owner: 'bot',
                     repo: 'test-repo',

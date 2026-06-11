@@ -45,7 +45,7 @@ describe('generatePRReport', () => {
             {
                 number: 7,
             },
-            ({
+            {
                 rest: {
                     issues: {
                         updateComment,
@@ -53,7 +53,7 @@ describe('generatePRReport', () => {
                     },
                 },
                 paginate,
-            } as unknown) as ReturnType<typeof getOctokit>
+            } as unknown as ReturnType<typeof getOctokit>
         );
 
         expect(createComment).toHaveBeenCalledWith({
@@ -86,7 +86,7 @@ describe('generatePRReport', () => {
             {
                 number: 7,
             },
-            ({
+            {
                 rest: {
                     issues: {
                         updateComment,
@@ -94,7 +94,7 @@ describe('generatePRReport', () => {
                     },
                 },
                 paginate,
-            } as unknown) as ReturnType<typeof getOctokit>
+            } as unknown as ReturnType<typeof getOctokit>
         );
 
         expect(updateComment).toHaveBeenCalledWith({
