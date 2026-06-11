@@ -5,7 +5,7 @@ import { readFile } from 'fs-extra';
 import { isOldScript } from '../../src/utils/isOldScript';
 
 beforeEach(() => {
-    ((readFile as unknown) as jest.Mock<any, any>).mockClear();
+    (readFile as unknown as jest.Mock<any, any>).mockClear();
 });
 
 describe('isOldScript', () => {
@@ -64,7 +64,7 @@ describe('isOldScript', () => {
     });
 
     it('should detect old scripts in package.json file', async () => {
-        ((readFile as unknown) as jest.Mock<any, any>).mockReturnValue(
+        (readFile as unknown as jest.Mock<any, any>).mockReturnValue(
             JSON.stringify({
                 scripts: {
                     test: 'npx jest --outputFile=report.json',
@@ -100,9 +100,9 @@ describe('isOldScript', () => {
             await isOldScript('pnpm run test -- --coverage', undefined)
         ).toBe(true);
 
-        ((readFile as unknown) as jest.Mock<any, any>).mockClear();
+        (readFile as unknown as jest.Mock<any, any>).mockClear();
 
-        ((readFile as unknown) as jest.Mock<any, any>).mockReturnValue(
+        (readFile as unknown as jest.Mock<any, any>).mockReturnValue(
             JSON.stringify({
                 scripts: {
                     test: 'npx jest --outputFile=report.json',

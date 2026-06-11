@@ -8,7 +8,7 @@ import { FailReason } from '../../src/typings/Report';
 import { createDataCollector } from '../../src/utils/DataCollector';
 
 const clearMocks = () => {
-    ((readFile as unknown) as jest.Mock<any, any>).mockClear();
+    (readFile as unknown as jest.Mock<any, any>).mockClear();
 };
 
 beforeEach(clearMocks);
@@ -17,7 +17,7 @@ describe('collectCoverage', () => {
     it('should read report.json by default', async () => {
         const dataCollector = createDataCollector();
 
-        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+        (readFile as unknown as jest.Mock<any, any>).mockImplementationOnce(
             () => 'Value'
         );
 
@@ -28,7 +28,7 @@ describe('collectCoverage', () => {
     it('should read report.json from correct path when working directory is provided', async () => {
         const dataCollector = createDataCollector();
 
-        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+        (readFile as unknown as jest.Mock<any, any>).mockImplementationOnce(
             () => 'New value'
         );
 
@@ -41,7 +41,7 @@ describe('collectCoverage', () => {
     it('should read report from correct path when working directory and custom report path is provided', async () => {
         const dataCollector = createDataCollector();
 
-        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+        (readFile as unknown as jest.Mock<any, any>).mockImplementationOnce(
             () => 'New value'
         );
 
@@ -60,7 +60,7 @@ describe('collectCoverage', () => {
     it('should throw error if report not found', async () => {
         const dataCollector = createDataCollector();
 
-        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+        (readFile as unknown as jest.Mock<any, any>).mockImplementationOnce(
             () => {
                 throw {
                     code: 'ENOENT',
@@ -78,7 +78,7 @@ describe('collectCoverage', () => {
     it('should throw unknown error', async () => {
         const dataCollector = createDataCollector();
 
-        ((readFile as unknown) as jest.Mock<any, any>).mockImplementationOnce(
+        (readFile as unknown as jest.Mock<any, any>).mockImplementationOnce(
             () => {
                 throw new Error('Custom error');
             }

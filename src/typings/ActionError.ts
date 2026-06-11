@@ -8,7 +8,7 @@ export class ActionError<T> extends Error {
         super(
             i18n(
                 `errors.${reason}`,
-                (details as unknown) as Record<string, unknown>
+                details as unknown as Record<string, unknown>
             )
         );
         this.failReason = reason;

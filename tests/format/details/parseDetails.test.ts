@@ -7,7 +7,7 @@ describe('parseDetails', () => {
     it('should match snapshots', () => {
         expect(parseDetails(report)).toMatchSnapshot();
         expect(
-            parseDetails((report2 as unknown) as JsonReport)
+            parseDetails(report2 as unknown as JsonReport)
         ).toMatchSnapshot();
     });
 });

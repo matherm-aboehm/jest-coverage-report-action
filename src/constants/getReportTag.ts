@@ -12,7 +12,7 @@ const OPTION_NAMES_TO_HASH = [
     'customTitle',
 ] as const;
 
-type OptionsToHash = Pick<Options, typeof OPTION_NAMES_TO_HASH[number]>;
+type OptionsToHash = Pick<Options, (typeof OPTION_NAMES_TO_HASH)[number]>;
 
 const hashString = (str: string) => {
     return crypto.createHash('md5').update(str).digest('hex');
