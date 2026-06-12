@@ -56,6 +56,18 @@ jobs:
             - name: Checkout repo
               uses: actions/checkout@v6
 
+            - name: Use Node 18.x for Lint
+              if: ${{ matrix.node.version == '16.x' }}
+              uses: actions/setup-node@v6
+              with:
+                  node-version: '18.x'
+            - name: Install deps and build (with cache) for Lint
+              if: ${{ matrix.node.version == '16.x' }}
+              uses: bahmutov/npm-install@v1
+            - name: Lint on Node 18.x
+              if: ${{ matrix.node.version == '16.x' }}
+              run: npm run lint
+
             - name: Use Node ${{ matrix.node.version }}
               uses: actions/setup-node@v6
               with:
@@ -69,6 +81,7 @@ jobs:
               uses: bahmutov/npm-install@v1
 
             - name: Lint
+              if: ${{ matrix.node.version != '16.x' }}
               run: npm run lint
 
             - name: Test
