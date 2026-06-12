@@ -93,10 +93,10 @@ const optionSchema = yup.object().shape({
         .of(yup.string().required().oneOf(validOutputTypeOptions)),
 });
 
-export const shouldInstallDeps = (skipStep: SkipStepType): Boolean =>
+export const shouldInstallDeps = (skipStep: SkipStepType): boolean =>
     !['all', 'install'].includes(skipStep);
 
-export const shouldRunTestScript = (skipStep: SkipStepType): Boolean =>
+export const shouldRunTestScript = (skipStep: SkipStepType): boolean =>
     !['all'].includes(skipStep);
 
 export const getOptions = async (): Promise<Options> => {
