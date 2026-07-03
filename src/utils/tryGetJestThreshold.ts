@@ -6,8 +6,7 @@ export const tryGetJestThreshold = async (
 ): Promise<JestThreshold | undefined> => {
     try {
         const config = (await parseJestConfig(workingDirectory)) as
-            | { coverageThreshold: JestThreshold }
-            | undefined;
+            { coverageThreshold: JestThreshold } | undefined;
 
         return config?.coverageThreshold;
     } catch (err) {
