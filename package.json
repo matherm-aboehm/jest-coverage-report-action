@@ -23,11 +23,11 @@
         "@actions/github": "^5.0.3",
         "@actions/http-client": "^2.0.1",
         "@octokit/request-error": "^2.1.0",
-        "fs-extra": "^11.3.5",
+        "fs-extra": "^11.3.6",
         "markdown-table": "^3.0.4",
         "micromatch": "^4.0.8",
         "parse-diff": "^0.12.0",
-        "semver": "^7.8.4",
+        "semver": "^7.8.5",
         "strip-ansi": "^7.2.0",
         "yup": "^0.32.9"
     },
