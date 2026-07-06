@@ -34,6 +34,9 @@ updates:
               dependency-type: 'development'
               update-types:
                   - major
+      ignore:
+          - dependency-name: '@types/node'
+            versions: ['>=23.0.0']
       commit-message:
           prefix: 'fix'
           prefix-development: 'build'
