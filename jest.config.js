@@ -12,7 +12,7 @@ module.exports = {
         '^.+\\.md$': '<rootDir>/fileTransformer.js',
     },
     transformIgnorePatterns: [
-        'node_modules/(?!(strip-ansi|ansi-regex|markdown-table)/)',
+        'node_modules/(?!(strip-ansi|ansi-regex|markdown-table|@octokit/request-error)/)',
     ],
     testMatch: ['**/*.(test|spec).ts'],
     collectCoverageFrom: ['src/**/{!(index.ts),}.ts'],
