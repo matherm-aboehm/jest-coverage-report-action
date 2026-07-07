@@ -58,9 +58,6 @@
         "jest-util": "^30.4.1",
         "prettier": "^3.9.4",
         "ts-jest": "^29.4.11",
-        "typescript": "^5.9.3"
-    },
-    "overrides": {
-        "ohash": "^1.1.4"
+        "typescript": "^6.0.3"
     }
 }

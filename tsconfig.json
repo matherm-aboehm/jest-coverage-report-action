@@ -9,6 +9,8 @@
         "lib": ["ES2019", "DOM" /* dirty hack, otherwise typescript doesn't find URL */],
         "rootDir": "src",
         "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "types": ["node", "jest"],
         "allowJs": true
     },
     "include": ["src", "index.d.ts"],
