@@ -3,3 +3,7 @@ declare module '*.md' {
 
     export default text;
 }
+
+declare module 'jiti' {
+    export * from 'jiti/static';
+}
