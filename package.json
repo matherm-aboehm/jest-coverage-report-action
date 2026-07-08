@@ -44,7 +44,7 @@
         "@types/micromatch": "^4.0.10",
         "@types/node": "^22.20.0",
         "@types/semver": "^7.7.1",
-        "@typescript-eslint/eslint-plugin": "^8.62.1",
+        "@typescript-eslint/eslint-plugin": "^8.63.0",
         "@typescript-eslint/parser": "^8.61.0",
         "babel-jest": "^30.4.1",
         "c12": "^3.3.4",
