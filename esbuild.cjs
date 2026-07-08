@@ -7,7 +7,7 @@ build({
     platform: 'node',
     entryPoints: ['src/index.ts'],
     outfile: 'dist/index.js',
-    target: 'node10',
+    target: 'node12',
     loader: {
         '.md': 'text',
     },
