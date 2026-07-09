@@ -90,7 +90,7 @@ jobs:
             - name: Build
               run: npm run build
     ci-docs:
-        name: Building, linting, testing /docs on node 12.x and ubuntu-latest
+        name: Building, linting, testing /docs on node 24.x and ubuntu-latest
         needs: pr-paths-changed
         if: ${{ fromJson(needs.pr-paths-changed.outputs.docs) == true }}
         runs-on: ubuntu-latest
@@ -98,10 +98,10 @@ jobs:
             - name: Begin job...
               uses: actions/checkout@v7
 
-            - name: Use Node 12
+            - name: Use Node 24
               uses: actions/setup-node@v6
               with:
-                  node-version: '12'
+                  node-version: '24'
                   cache: 'npm'
 
             - name: Install deps (with cache)
