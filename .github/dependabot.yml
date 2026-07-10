@@ -54,6 +54,14 @@ updates:
               update-types:
                   - minor
                   - patch
+          react-dependencies:
+              patterns:
+                  - react
+                  - react-dom
+                  - '@types/react'
+              dependency-type: 'production'
+              update-types:
+                  - major
       ignore:
           - dependency-name: '@monaco-editor/react'
             versions: ['>=4.5.0']
@@ -69,6 +77,8 @@ updates:
             versions: ['>=19.0.0']
           - dependency-name: '@types/react'
             versions: ['>=19.0.0']
+          - dependency-name: '@primer/react'
+            versions: ['>=36.0.0']
       commit-message:
           prefix: 'fix(docs)'
           prefix-development: 'build(docs)'
