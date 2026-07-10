@@ -1,8 +1,11 @@
 import { Box, Grid, GridItem, Heading, Text, useToast } from '@chakra-ui/react';
-import { StyledOcticon } from '@primer/react';
-import BorderBox from '@primer/react/lib/BorderBox';
-import Button, { ButtonGroup } from '@primer/react/lib/Button';
-import PointerBox from '@primer/react/lib/PointerBox';
+import {
+    StyledOcticon,
+    Box as PrimerBox,
+    Button,
+    ButtonGroup,
+    PointerBox,
+} from '@primer/react';
 import {
     GitMergeIcon,
     TriangleDownIcon,
@@ -27,10 +30,12 @@ export const PrFooter = ({ className }: PrFooterProps) => {
     });
 
     return (
-        <BorderBox
+        <PrimerBox
             className={className}
             borderRadius={0}
             borderWidth="3px 0 0 0"
+            borderStyle="solid"
+            borderColor="border.default"
         >
             <Grid templateColumns="60px 1fr" marginTop="2">
                 <GridItem
@@ -38,9 +43,12 @@ export const PrFooter = ({ className }: PrFooterProps) => {
                     alignItems="flex-start"
                     display="flex"
                 >
-                    <BorderBox
+                    <PrimerBox
                         padding={1}
                         bg="bg.warning"
+                        borderRadius={2}
+                        borderWidth="1px"
+                        borderStyle="solid"
                         borderColor="border.warning"
                     >
                         <StyledOcticon
@@ -48,7 +56,7 @@ export const PrFooter = ({ className }: PrFooterProps) => {
                             sx={{ color: 'border.warning' }}
                             icon={GitMergeIcon}
                         />
-                    </BorderBox>
+                    </PrimerBox>
                 </GridItem>
                 <GridItem>
                     <PointerBox borderColor="border.warning" caret="left-top">
@@ -111,6 +119,6 @@ export const PrFooter = ({ className }: PrFooterProps) => {
                     </PointerBox>
                 </GridItem>
             </Grid>
-        </BorderBox>
+        </PrimerBox>
     );
 };

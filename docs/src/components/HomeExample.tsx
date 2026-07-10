@@ -1,6 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import StyledOcticon from '@primer/react/lib/StyledOcticon';
-import Timeline from '@primer/react/lib/Timeline';
+import { StyledOcticon, Timeline } from '@primer/react';
 import { GitCommitIcon } from '@primer/octicons-react';
 import React from 'react';
 
@@ -18,9 +17,8 @@ type TransformProps = {
 
 const createTransforms = (transforms: Record<string, TransformProps>) =>
     Object.entries(transforms).reduce((acc, [key, { translate, scale }]) => {
-        acc[
-            key
-        ] = `skew(-32deg, 0deg) rotate(15deg) translate(${translate.x}, ${translate.y}) scale(${scale})`;
+        acc[key] =
+            `skew(-32deg, 0deg) rotate(15deg) translate(${translate.x}, ${translate.y}) scale(${scale})`;
 
         return acc;
     }, {});

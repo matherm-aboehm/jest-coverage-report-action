@@ -1,6 +1,5 @@
 import { Box, Divider, GridItem, Heading, Text } from '@chakra-ui/react';
-import Label from '@primer/react/lib/Label';
-import PointerBox from '@primer/react/lib/PointerBox';
+import { Label, PointerBox } from '@primer/react';
 import React from 'react';
 
 import { BotLogo } from './BotLogo';
@@ -88,9 +87,7 @@ export const CoverageComment = ({
                     <Text display="inline" fontWeight="bold">
                         github-actions
                     </Text>
-                    <Label sx={{ ml: 1 }} outline>
-                        bot
-                    </Label>
+                    <Label sx={{ ml: 1 }}>bot</Label>
                 </Box>
                 <Box
                     paddingX="3"
