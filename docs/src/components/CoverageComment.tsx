@@ -1,6 +1,6 @@
 import { Box, Divider, GridItem, Heading, Text } from '@chakra-ui/react';
-import Label from '@primer/components/lib/Label';
-import PointerBox from '@primer/components/lib/PointerBox';
+import Label from '@primer/react/lib/Label';
+import PointerBox from '@primer/react/lib/PointerBox';
 import React from 'react';
 
 import { BotLogo } from './BotLogo';
