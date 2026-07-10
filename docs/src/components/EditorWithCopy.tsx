@@ -39,18 +39,20 @@ export const EditorWithCopy = ({
 
     const text = useRef(props.value);
 
+    const { onChange: onChangeOrig } = props;
+
     const onChange = useCallback<OnChange>(
         (currentText, e) => {
             text.current = currentText;
-            props.onChange?.(currentText, e);
+            onChangeOrig?.(currentText, e);
         },
-        [props.onChange]
+        [onChangeOrig]
     );
 
     const copy = useCallback(() => {
         setCopyValue(text.current);
         setTimeout(performCopy);
-    }, []);
+    }, [performCopy]);
 
     return (
         <Box

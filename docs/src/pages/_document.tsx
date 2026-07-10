@@ -26,7 +26,7 @@ export default class CustomDocument extends Document {
                         async
                         src="https://www.googletagmanager.com/gtag/js?id=G-BT9580VG7N"
                     ></script>
-                    <script src="/analytics.js" />
+                    <script async src="/analytics.js" />
                 </Head>
                 <body>
                     <Main />

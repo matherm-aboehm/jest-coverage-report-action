@@ -10,7 +10,11 @@ export type ImageSrc = {
     path: string;
 };
 
-export const ResponsiveImage = ({ images, ...other }: ResponsiveImageProps) => {
+export const ResponsiveImage = ({
+    images,
+    alt = '',
+    ...other
+}: ResponsiveImageProps) => {
     return (
         <picture>
             {images
@@ -23,7 +27,7 @@ export const ResponsiveImage = ({ images, ...other }: ResponsiveImageProps) => {
                         srcSet={image.path}
                     />
                 ))}
-            <img src={images[images.length - 1]?.path} {...other} />
+            <img src={images[images.length - 1]?.path} alt={alt} {...other} />
         </picture>
     );
 };
