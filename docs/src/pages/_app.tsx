@@ -1,5 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import ThemeProvider from '@primer/react/lib/ThemeProvider';
+import { ThemeProvider } from '@primer/react';
 import { AppProps } from 'next/app';
 import React from 'react';
 

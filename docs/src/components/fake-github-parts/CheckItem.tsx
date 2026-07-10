@@ -1,5 +1,5 @@
 import { GridItem } from '@chakra-ui/react';
-import StyledOcticon from '@primer/react/lib/StyledOcticon';
+import { StyledOcticon } from '@primer/react';
 import { XIcon } from '@primer/octicons-react';
 import React, { PropsWithChildren } from 'react';
 
