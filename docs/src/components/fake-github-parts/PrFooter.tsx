@@ -1,8 +1,8 @@
 import { Box, Grid, GridItem, Heading, Text, useToast } from '@chakra-ui/react';
-import { StyledOcticon } from '@primer/components';
-import BorderBox from '@primer/components/lib/BorderBox';
-import Button, { ButtonGroup } from '@primer/components/lib/Button';
-import PointerBox from '@primer/components/lib/PointerBox';
+import { StyledOcticon } from '@primer/react';
+import BorderBox from '@primer/react/lib/BorderBox';
+import Button, { ButtonGroup } from '@primer/react/lib/Button';
+import PointerBox from '@primer/react/lib/PointerBox';
 import {
     GitMergeIcon,
     TriangleDownIcon,

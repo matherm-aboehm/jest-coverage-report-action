@@ -6,7 +6,7 @@ import {
     List,
     ListItem,
 } from '@chakra-ui/react';
-import { Box } from '@primer/components';
+import { Box } from '@primer/react';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import NextLink from 'next/link';

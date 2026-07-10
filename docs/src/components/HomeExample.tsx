@@ -1,6 +1,6 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import StyledOcticon from '@primer/components/lib/StyledOcticon';
-import Timeline from '@primer/components/lib/Timeline';
+import StyledOcticon from '@primer/react/lib/StyledOcticon';
+import Timeline from '@primer/react/lib/Timeline';
 import { GitCommitIcon } from '@primer/octicons-react';
 import React from 'react';
 

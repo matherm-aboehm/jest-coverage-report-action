@@ -1,4 +1,4 @@
-import CircleBadge from '@primer/components/lib/CircleBadge';
+import CircleBadge from '@primer/react/lib/CircleBadge';
 import { MarkGithubIcon } from '@primer/octicons-react';
 import React from 'react';
 

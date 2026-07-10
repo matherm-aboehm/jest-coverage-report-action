@@ -7,7 +7,7 @@ import {
     useClipboard,
 } from '@chakra-ui/react';
 import type { EditorProps, OnChange } from '@monaco-editor/react';
-import { StyledOcticon } from '@primer/components';
+import { StyledOcticon } from '@primer/react';
 import { CheckIcon, PasteIcon } from '@primer/octicons-react';
 import dynamic from 'next/dynamic';
 import React, { useCallback, useReducer, useRef } from 'react';
