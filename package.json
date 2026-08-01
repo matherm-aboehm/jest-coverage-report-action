@@ -33,7 +33,7 @@
         "yup": "^1.7.1"
     },
     "devDependencies": {
-        "@eslint/eslintrc": "^3.3.5",
+        "@eslint/eslintrc": "^3.3.6",
         "@eslint/js": "^10.0.1",
         "@types/babel__traverse": "^7.28.0",
         "@types/fs-extra": "^11.0.4",
@@ -44,20 +44,20 @@
         "@types/micromatch": "^4.0.10",
         "@types/node": "^22.20.0",
         "@types/semver": "^7.7.1",
-        "@typescript-eslint/eslint-plugin": "^8.63.0",
+        "@typescript-eslint/eslint-plugin": "^8.65.0",
         "@typescript-eslint/parser": "^8.61.0",
         "babel-jest": "^30.4.1",
         "c12": "^3.3.4",
         "esbuild": "^0.28.1",
-        "eslint": "^10.6.0",
+        "eslint": "^10.8.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.6",
         "eslint-plugin-simple-import-sort": "^13.0.0",
-        "globals": "^17.7.0",
+        "globals": "^17.8.0",
         "jest": "^30.4.2",
         "jest-util": "^30.4.1",
-        "prettier": "^3.9.4",
-        "ts-jest": "^29.4.11",
+        "prettier": "^3.9.6",
+        "ts-jest": "^29.4.12",
         "typescript": "^6.0.3"
     }
 }
