@@ -23,7 +23,7 @@
         "@actions/github": "^9.1.1",
         "@actions/http-client": "^4.0.1",
         "@octokit/request-error": "^7.1.0",
-        "fs-extra": "^11.3.6",
+        "fs-extra": "^11.4.0",
         "lodash": "^4.18.1",
         "markdown-table": "^3.0.4",
         "micromatch": "^4.0.8",
