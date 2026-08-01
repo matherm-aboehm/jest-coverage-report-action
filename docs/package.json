@@ -14,7 +14,7 @@
     "author": "Artiom Tretjakovas",
     "license": "MIT",
     "dependencies": {
-        "@chakra-ui/react": "^1.8.9",
+        "@chakra-ui/react": "^3.36.1",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
         "@monaco-editor/react": "^4.4.6",
