@@ -35,7 +35,7 @@
         "@types/node": "^12.12.6",
         "@types/react": "^18.3.12",
         "eslint": "^7.21.0",
-        "eslint-config-next": "^12.1.0",
+        "eslint-config-next": "^16.3.3",
         "gh-pages": "^6.3.0",
         "import-sync": "2.2.3",
         "remark-slug": "^7.0.1",
