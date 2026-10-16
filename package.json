@@ -42,7 +42,7 @@
         "@types/lodash": "^4.14.165",
         "@types/markdown-table": "^3.0.0",
         "@types/micromatch": "^4.0.10",
-        "@types/node": "^22.20.0",
+        "@types/node": "^26.1.1",
         "@types/semver": "^7.7.1",
         "@typescript-eslint/eslint-plugin": "^8.63.0",
         "@typescript-eslint/parser": "^8.61.0",
